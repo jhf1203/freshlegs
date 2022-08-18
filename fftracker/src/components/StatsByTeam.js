@@ -29,10 +29,100 @@ function StatsByTeam(props) {
         console.log("we found the team!  It's ", team);
         switch (team) {
           case "ARI":
-            teamName = "Cardinals";
+            teamName = "Arizona Cardinals";
+            break;
+          case "ATL":
+            teamName = "Atlanta Falcons";
+            break;
+          case "BAL":
+            teamName = "Baltimore Ravens";
+            break;
+          case "BUF":
+            teamName = "Buffalo Bills";
+            break;
+          case "CAR":
+            teamName = "Carolina Panthers";
+            break;
+          case "CHI":
+            teamName = "Chicago Bears";
+            break;
+          case "CIN":
+            teamName = "Cincinatti Bengals";
+            break;
+          case "CLE":
+            teamName = "Cleveland Browns";
+            break;
+          case "DAL":
+            teamName = "Dallas Cowboys";
+            break;
+          case "DEN":
+            teamName = "Denver Broncos";
+            break;
+          case "DET":
+            teamName = "Detroit Lions";
+            break;
+          case "GB":
+            teamName = "Green Bay Packers";
+            break;
+          case "HOU":
+            teamName = "Houston Texans";
+            break;
+          case "IND":
+            teamName = "Indianapolis Colts";
+            break;
+          case "JAX":
+            teamName = "Jacksonville Jaguars";
+            break;
+          case "KC":
+            teamName = "Kansas City Chiefs";
             break;
           case "LAC":
-            teamName = "Chargers";
+            teamName = "Los Angeles Chargers";
+            break;
+          case "LAR":
+            teamName = "Los Angeles Rams";
+            break;
+          case "LV":
+            teamName = "Las Vegas Raiders";
+            break;
+          case "MIA":
+            teamName = "Miami Dolphins";
+            break;
+          case "MIN":
+            teamName = "Minnesota Vikings";
+            break;
+          case "NE":
+            teamName = "New England Patriots";
+            break;
+          case "NO":
+            teamName = "New Orleans Saints";
+            break;
+          case "NYG":
+            teamName = "New York Giants";
+            break;
+          case "NYJ":
+            teamName = "New York Jets";
+            break;
+          case "PHI":
+            teamName = "Philadelphia Eagles";
+            break;
+          case "PIT":
+            teamName = "Pittsburgh Steelers";
+            break;
+          case "SEA":
+            teamName = "Seattle Seahawks";
+            break;
+          case "SF":
+            teamName = "San Francisco 49ers";
+            break;
+          case "TB":
+            teamName = "Tampa Bay Buccaneers";
+            break;
+          case "TN":
+            teamName = "Tennessee Titans";
+            break;
+          case "WAS":
+            teamName = "Washington Commanders";
             break;
           default:
             teamName = "some other name";
@@ -77,17 +167,12 @@ function StatsByTeam(props) {
       <Row>
         <Form>
           <Row>
-            <Col md="7">
+            <Col md="12">
               <Form.Select onChange={teamSelect}>
                 {teamArr.map((team) => {
                   return <option>{team}</option>;
                 })}
               </Form.Select>
-            </Col>
-            <Col md="5">
-              <Button type="submit" onClick={teamDisplay}>
-                Submit
-              </Button>
             </Col>
           </Row>
         </Form>
