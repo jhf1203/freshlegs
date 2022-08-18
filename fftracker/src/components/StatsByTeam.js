@@ -5,6 +5,15 @@ import TeamCard from "./TeamCard";
 
 function StatsByTeam(props) {
   const [teamToShow, setTeamToShow] = useState("null");
+  const [currentTeam, setCurrentTeam] = useState({
+    teamName: "null",
+    qbPoints: "null",
+    rbPoints: "null",
+    wrPoints: "null",
+    tePoints: "null",
+    kPoints: "null",
+    dstPoints: "null",
+  });
 
   console.log("team props: ", props);
   let teamArr = [];
@@ -13,22 +22,53 @@ function StatsByTeam(props) {
     teamArr.push(team.Team);
   });
 
+  function findTeam(team) {
+    let teamName;
+    for (let i = 0; i < props.defenseData.length; i++) {
+      if (props.defenseData[i].Team == team) {
+        console.log("we found the team!  It's ", team);
+        switch (team) {
+          case "ARI":
+            teamName = "Cardinals";
+            break;
+          case "LAC":
+            teamName = "Chargers";
+            break;
+          default:
+            teamName = "some other name";
+        }
+        console.log("name is now: ", teamName);
+        setCurrentTeam({
+          teamName: teamName,
+          qbPoints: props.defenseData[i].QuarterbackFantasyPointsAllowed,
+          rbPoints: props.defenseData[i].RunningbackFantasyPointsAllowed,
+          wrPoints: props.defenseData[i].WideReceiverFantasyPointsAllowed,
+          tePoints: props.defenseData[i].TightEndFantasyPointsAllowed,
+          kPoints: props.defenseData[i].KickerFantasyPointsAllowed,
+          dstPoints: props.defenseData[i].FantasyPointsAllowed,
+        });
+      }
+    }
+  }
+
   function teamSelect(e) {
     e.preventDefault();
     console.log(e.target.value);
     setTeamToShow(e.target.value);
+    findTeam(e.target.value);
   }
 
   function teamDisplay(e) {
     e.preventDefault();
     console.log("teamtoshow!", teamToShow);
+    // findTeam(teamToShow);
   }
 
   function launchDisplay() {
     if (teamToShow == "null") {
       return "Select a team to see their stats";
     } else {
-      return <TeamCard team={teamToShow} />;
+      return <TeamCard team={teamToShow} stats={currentTeam} />;
     }
   }
 
@@ -52,9 +92,7 @@ function StatsByTeam(props) {
           </Row>
         </Form>
       </Row>
-      <Row>
-        <h1>{launchDisplay()}</h1>
-      </Row>
+      <Row>{launchDisplay()}</Row>
     </div>
   );
 }
