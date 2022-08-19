@@ -7,33 +7,49 @@ import { Container, Row, Col } from "react-bootstrap";
 import PointsByPosition from "./components/PointsByPosition";
 import StatsByTeam from "./components/StatsByTeam";
 import InstructionText from "./components/InstructionText";
+import lyRes from "./assets/2021res"
 
 function App() {
-  const [defenseData, setDefenseData] = useState([]);
-  const [teamData, setTeamData] = useState([]);
+  const [defenseData, setDefenseData] = useState(lyRes);
+  // const [teamData, setTeamData] = useState([]);
   const [infoToShow, setInfoToShow] = useState("instruction");
 
   let season = "2021REG";
   let key = "b3035b452c504c9095fc1bacfad65548";
   let conStrDef = `https://api.sportsdata.io/v3/nfl/stats/json/FantasyDefenseBySeason/${season}?key=${key}`;
   let conStrTeam = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${season}?key=${key}`;
+  
+  let qbAvg
+  let rbAvg
+  let wrAvg
+  let teAvg
+  let kAvg
+  let dstAvg
 
-  async function showStats() {
-    let responseDef = await axios.get(conStrDef);
-    let responseTeam = await axios.get(conStrTeam);
-    setDefenseData(responseDef.data);
-    setTeamData(responseTeam.data);
-    console.log("def", defenseData);
-    console.log("team", teamData);
-  }
+  let arrAvg = [qbAvg, rbAvg, wrAvg, teAvg, kAvg, dstAvg]
+
+
+
+  // async function showStats() {
+  //   let responseDef = await axios.get(conStrDef);
+  //   let responseTeam = await axios.get(conStrTeam);
+  //   setDefenseData(responseDef.data);
+  //   setTeamData(responseTeam.data);
+  //   console.log("def", defenseData);
+  //   console.log("team", teamData);
+  // }
 
   function setVisible() {
     if (infoToShow == "instruction") {
       return <InstructionText />;
     } else if (infoToShow == "positions") {
-      return <PointsByPosition defenseData={defenseData} teamData={teamData} />;
+      return <PointsByPosition defenseData={defenseData} 
+      // teamData={teamData} 
+      />;
     } else {
-      return <StatsByTeam defenseData={defenseData} teamData={teamData} />;
+      return <StatsByTeam defenseData={defenseData} 
+      // teamData={teamData} 
+      />;
     }
   }
 
@@ -46,7 +62,7 @@ function App() {
   }
 
   useEffect(() => {
-    showStats();
+    console.log("statedata, ", defenseData); 
   }, []);
 
   return (
