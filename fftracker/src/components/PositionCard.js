@@ -2,21 +2,21 @@ import { React, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 
 function PositionCard(props) {
-  console.log("props: ", props);
+  console.log("position card props: ", props);
 
   return (
     <div>
       <Row>
-        <p>{props.data[0].position} points allowed</p>
+        <p>{props.data[0].position} PPG allowed</p>
       </Row>
-      {props.data.map((team) => {
+      {props.data[0].points.map((team) => {
         return (
           <Row>
             <Col md="1">
-              <p>{team.teamName}</p>
+              <p>{team.team}</p>
             </Col>
             <Col md="1">
-              <p>{team.teamStat}</p>
+              <p>{(team.points / 16).toFixed(1)}</p>
             </Col>
           </Row>
         );

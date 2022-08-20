@@ -7,12 +7,14 @@ function StatsByTeam(props) {
   const [teamToShow, setTeamToShow] = useState("null");
   const [currentTeam, setCurrentTeam] = useState({
     teamName: "null",
-    qbPoints: "null",
-    rbPoints: "null",
-    wrPoints: "null",
-    tePoints: "null",
-    kPoints: "null",
-    dstPoints: "null",
+    teamRanks: [
+      { qbPoints: "null", rank: "null" },
+      { rbPoints: "null", rank: "null" },
+      { wrPoints: "null", rank: "null" },
+      { tePoints: "null", rank: "null" },
+      { kPoints: "null", rank: "null" },
+      { dstPoints: "null", rank: "null" },
+    ],
   });
 
   console.log("team props: ", props);
@@ -130,12 +132,33 @@ function StatsByTeam(props) {
         console.log("name is now: ", teamName);
         setCurrentTeam({
           teamName: teamName,
-          qbPoints: props.defenseData[i].QuarterbackFantasyPointsAllowed,
-          rbPoints: props.defenseData[i].RunningbackFantasyPointsAllowed,
-          wrPoints: props.defenseData[i].WideReceiverFantasyPointsAllowed,
-          tePoints: props.defenseData[i].TightEndFantasyPointsAllowed,
-          kPoints: props.defenseData[i].KickerFantasyPointsAllowed,
-          dstPoints: props.defenseData[i].FantasyPointsAllowed,
+          ranks: [
+            {
+              qbPoints: 
+              props.defenseData[i].QuarterbackFantasyPointsAllowed,
+              rank: (props.teamRankings[0].teamRanks.indexOf(team)) + 1,
+            },
+            {
+              rbPoints: props.defenseData[i].RunningbackFantasyPointsAllowed,
+              rank: (props.teamRankings[1].teamRanks.indexOf(team)) + 1,
+            },
+            {
+              wrPoints: props.defenseData[i].WideReceiverFantasyPointsAllowed,
+              rank: (props.teamRankings[2].teamRanks.indexOf(team)) + 1,
+            },
+            {
+              tePoints: props.defenseData[i].TightEndFantasyPointsAllowed,
+              rank: (props.teamRankings[3].teamRanks.indexOf(team)) + 1,
+            },
+            {
+              kPoints: props.defenseData[i].KickerFantasyPointsAllowed,
+              rank: (props.teamRankings[4].teamRanks.indexOf(team)) + 1,
+            },
+            {
+              dstPoints: props.defenseData[i].FantasyPointsAllowed,
+              rank: (props.teamRankings[5].teamRanks.indexOf(team)) + 1,
+            },
+          ],
         });
       }
     }

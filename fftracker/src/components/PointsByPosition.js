@@ -11,45 +11,25 @@ function PointsByPosition(props) {
   console.log("points props: ", props);
 
   function posList(pos) {
-    for (let i = 0; i < props.defenseData.length; i++) {
-      switch (pos) {
-        case "QB":
-          statsArr.push({
-            position: "Quarterback",
-            teamName: props.defenseData[i].Team,
-            teamStat: props.defenseData[i].QuarterbackFantasyPointsAllowed,
-          });
-          break;
-        case "RB":
-          statsArr.push({
-            position: "Running Back",
-            teamName: props.defenseData[i].Team,
-            teamStat: props.defenseData[i].RunningbackFantasyPointsAllowed,
-          });
-          break;
-        case "WR":
-          statsArr.push({
-            position: "Wide Receiver",
-            teamName: props.defenseData[i].Team,
-            teamStat: props.defenseData[i].WideReceiverFantasyPointsAllowed,
-          });
-          break;
-        case "TE":
-          statsArr.push({
-            position: "Tight End",
-            teamName: props.defenseData[i].Team,
-            teamStat: props.defenseData[i].TightEndFantasyPointsAllowed,
-          });
-          break;
-        case "K":
-          statsArr.push({
-            position: "Kicker",
-            teamName: props.defenseData[i].Team,
-            teamStat: props.defenseData[i].KickerFantasyPointsAllowed,
-          });
-      }
-      setPosData(statsArr);
+    // for (let i = 0; i < props.defenseData.length; i++) {
+    switch (pos) {
+      case "QB":
+        statsArr.push(props.sortedPoints[0]);
+        break;
+      case "RB":
+        statsArr.push(props.sortedPoints[1]);
+        break;
+      case "WR":
+        statsArr.push(props.sortedPoints[2]);
+        break;
+      case "TE":
+        statsArr.push(props.sortedPoints[3]);
+        break;
+      case "K":
+        statsArr.push(props.sortedPoints[4]);
     }
+    setPosData(statsArr);
+    // }
   }
 
   function posSelect(e) {

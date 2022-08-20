@@ -7,28 +7,132 @@ import { Container, Row, Col } from "react-bootstrap";
 import PointsByPosition from "./components/PointsByPosition";
 import StatsByTeam from "./components/StatsByTeam";
 import InstructionText from "./components/InstructionText";
-import lyRes from "./assets/2021res"
+import lyRes from "./assets/2021res";
 
 function App() {
   const [defenseData, setDefenseData] = useState(lyRes);
+  const [pointData, setPointData] = useState([])
+  const [rankingData, setRankingData] = useState([])
   // const [teamData, setTeamData] = useState([]);
   const [infoToShow, setInfoToShow] = useState("instruction");
 
-  let season = "2021REG";
-  let key = "b3035b452c504c9095fc1bacfad65548";
-  let conStrDef = `https://api.sportsdata.io/v3/nfl/stats/json/FantasyDefenseBySeason/${season}?key=${key}`;
-  let conStrTeam = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${season}?key=${key}`;
-  
-  let qbAvg
-  let rbAvg
-  let wrAvg
-  let teAvg
-  let kAvg
-  let dstAvg
+  // let season = "2021REG";
+  // let key = "b3035b452c504c9095fc1bacfad65548";
+  // let conStrDef = `https://api.sportsdata.io/v3/nfl/stats/json/FantasyDefenseBySeason/${season}?key=${key}`;
+  // let conStrTeam = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${season}?key=${key}`;
 
-  let arrAvg = [qbAvg, rbAvg, wrAvg, teAvg, kAvg, dstAvg]
+  let qbArr = {position: "Quarterbacks", points: []};
+  let rbArr = {position: "Running Backs", points: []};
+  let wrArr = {position: "Wide Receivers", points: []};
+  let teArr = {position: "Tight Ends", points: []};
+  let kArr = {position: "Kickers", points: []};
+  let dstArr = {position: "All Positions", points: []};
+  let allArrs = [qbArr, rbArr, wrArr, teArr, kArr, dstArr];
+  let qbRanks = [];
+  let rbRanks = [];
+  let wrRanks = []
+  let teRanks = []
+  let kRanks = []
+  let dstRanks = []
+  let rankedArrs = [{position: "QB", teamRanks: qbRanks},
+  {position: "RB", teamRanks: rbRanks},
+  {position: "WR", teamRanks: wrRanks},
+  {position: "TE", teamRanks: teRanks},
+  {position: "K", teamRanks: kRanks},
+  {position: "DST", teamRanks: dstRanks}, ]
 
 
+
+  function arrSort(arr) {
+    arr.points.sort((a, b) => {
+      return a.points - b.points;
+    });
+  }
+
+  function pushTeams(arr1, arr2) {
+    for (let i=0; i<arr1.length; i++) {
+      arr2.push(arr1[i].team)
+    }
+  }
+
+  function qbCalc() {
+    for (let i = 0; i < defenseData.length; i++) {
+      qbArr.points.push({
+        team: defenseData[i].Team,
+        points: defenseData[i].QuarterbackFantasyPointsAllowed,
+      });
+    }
+    arrSort(qbArr);
+    pushTeams(qbArr.points, qbRanks)
+  }
+
+  function rbCalc() {
+    for (let i = 0; i < defenseData.length; i++) {
+      rbArr.points.push({
+        team: defenseData[i].Team,
+        points: defenseData[i].RunningbackFantasyPointsAllowed,
+      });
+    }
+    arrSort(rbArr);
+    pushTeams(rbArr.points, rbRanks)
+  }
+
+  function wrCalc() {
+    for (let i = 0; i < defenseData.length; i++) {
+      wrArr.points.push({
+        team: defenseData[i].Team,
+        points: defenseData[i].WideReceiverFantasyPointsAllowed,
+      });
+    }
+    arrSort(wrArr);
+    pushTeams(wrArr.points, wrRanks)
+  }
+
+  function teCalc() {
+    for (let i = 0; i < defenseData.length; i++) {
+      teArr.points.push({
+        team: defenseData[i].Team,
+        points: defenseData[i].TightEndFantasyPointsAllowed,
+      });
+    }
+    arrSort(teArr);
+    pushTeams(teArr.points, teRanks)
+  }
+
+  function kCalc() {
+    for (let i = 0; i < defenseData.length; i++) {
+      kArr.points.push({
+        team: defenseData[i].Team,
+        points: defenseData[i].KickerFantasyPointsAllowed,
+      });
+    }
+    arrSort(kArr);
+    pushTeams(kArr.points, kRanks)
+  }
+
+  function dstCalc() {
+    for (let i = 0; i < defenseData.length; i++) {
+      dstArr.points.push({
+        team: defenseData[i].Team,
+        points: defenseData[i].FantasyPointsAllowed,
+      });
+    }
+    arrSort(dstArr);
+    pushTeams(dstArr.points, dstRanks)
+  }
+
+  function calcAll() {
+    qbCalc();
+    rbCalc();
+    wrCalc();
+    teCalc();
+    kCalc();
+    dstCalc();
+    setPointData(allArrs)
+    setRankingData(rankedArrs)
+   }
+
+  //  ====== DONT DELETE BELOW ======
 
   // async function showStats() {
   //   let responseDef = await axios.get(conStrDef);
@@ -43,13 +147,23 @@ function App() {
     if (infoToShow == "instruction") {
       return <InstructionText />;
     } else if (infoToShow == "positions") {
-      return <PointsByPosition defenseData={defenseData} 
-      // teamData={teamData} 
-      />;
+      return (
+        <PointsByPosition
+          defenseData={defenseData}
+          sortedPoints={pointData}
+          teamRankings={rankingData}
+          // teamData={teamData}
+        />
+      );
     } else {
-      return <StatsByTeam defenseData={defenseData} 
-      // teamData={teamData} 
-      />;
+      return (
+        <StatsByTeam
+          defenseData={defenseData}
+          sortedPoints={pointData}
+          teamRankings={rankingData}
+          // teamData={teamData}
+        />
+      );
     }
   }
 
@@ -62,7 +176,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("statedata, ", defenseData); 
+    calcAll();
   }, []);
 
   return (
