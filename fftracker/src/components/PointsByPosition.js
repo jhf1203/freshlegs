@@ -3,8 +3,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 
 import PositionCard from "./PositionCard";
 function PointsByPosition(props) {
-
-console.log("position props: ", props)
+  console.log("position props: ", props);
 
   const [posToShow, setPosToShow] = useState("null");
   const [posData, setPosData] = useState([]);
