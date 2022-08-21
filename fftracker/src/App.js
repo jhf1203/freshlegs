@@ -9,6 +9,39 @@ import StatsByTeam from "./components/StatsByTeam";
 import InstructionText from "./components/InstructionText";
 import lyRes from "./assets/2021res";
 
+import logoAri from "./assets/logo-imgs/ari.png"
+import logoAtl from "./assets/logo-imgs/atl.png"
+import logoBal from "./assets/logo-imgs/bal.png"
+import logoBuf from "./assets/logo-imgs/buf.png"
+import logoCar from "./assets/logo-imgs/car.png"
+import logoChi from "./assets/logo-imgs/chi.png"
+import logoCin from "./assets/logo-imgs/cin.png"
+import logoCle from "./assets/logo-imgs/cle.png"
+import logoDal from "./assets/logo-imgs/dal.png"
+import logoDen from "./assets/logo-imgs/den.png"
+import logoDet from "./assets/logo-imgs/det.png"
+import logoGb from "./assets/logo-imgs/gb.png"
+import logoHou from "./assets/logo-imgs/hou.png"
+import logoInd from "./assets/logo-imgs/ind.png"
+import logoJax from "./assets/logo-imgs/jax.png"
+import logoKc from "./assets/logo-imgs/kc.png"
+import logoLac from "./assets/logo-imgs/lac.png"
+import logoLar from "./assets/logo-imgs/lar.png"
+import logoLv from "./assets/logo-imgs/lv.png"
+import logoMia from "./assets/logo-imgs/mia.png"
+import logoMin from "./assets/logo-imgs/min.png"
+import logoNe from "./assets/logo-imgs/ne.png"
+import logoNo from "./assets/logo-imgs/no.png"
+import logoNyg from "./assets/logo-imgs/nyg.png"
+import logoNyj from "./assets/logo-imgs/nyj.png"
+import logoPhi from "./assets/logo-imgs/phi.png"
+import logoPit from "./assets/logo-imgs/pit.png"
+import logoSea from "./assets/logo-imgs/sea.png"
+import logoSf from "./assets/logo-imgs/sf.png"
+import logoTb from "./assets/logo-imgs/tb.png"
+import logoTen from "./assets/logo-imgs/ten.png"
+import logoWas from "./assets/logo-imgs/was.png"
+
 function App() {
   const [defenseData, setDefenseData] = useState(lyRes);
   const [pointData, setPointData] = useState([])
@@ -21,6 +54,8 @@ function App() {
   // let conStrDef = `https://api.sportsdata.io/v3/nfl/stats/json/FantasyDefenseBySeason/${season}?key=${key}`;
   // let conStrTeam = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${season}?key=${key}`;
 
+
+  let arrLogos = [logoAri, logoAtl, logoBal, logoBuf, logoCar, logoChi, logoCin, logoCle, logoDal, logoDen, logoDet, logoGb, logoHou, logoInd, logoJax, logoKc, logoLac, logoLar, logoLv, logoMia, logoMin, logoNe, logoNo, logoNyg, logoNyj, logoPhi, logoPit, logoSea, logoSf, logoTb, logoTen, logoWas]
   let qbArr = {position: "Quarterbacks", points: []};
   let rbArr = {position: "Running Backs", points: []};
   let wrArr = {position: "Wide Receivers", points: []};
@@ -152,6 +187,7 @@ function App() {
           defenseData={defenseData}
           sortedPoints={pointData}
           teamRankings={rankingData}
+          teamLogos={arrLogos}
           // teamData={teamData}
         />
       );
@@ -161,6 +197,7 @@ function App() {
           defenseData={defenseData}
           sortedPoints={pointData}
           teamRankings={rankingData}
+          teamLogos={arrLogos}
           // teamData={teamData}
         />
       );

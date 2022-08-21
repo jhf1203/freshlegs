@@ -3,12 +3,14 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 
 import PositionCard from "./PositionCard";
 function PointsByPosition(props) {
+
+console.log("position props: ", props)
+
   const [posToShow, setPosToShow] = useState("null");
   const [posData, setPosData] = useState([]);
 
   let positionArr = ["QB", "RB", "WR", "TE", "K"];
   let statsArr = [];
-  console.log("points props: ", props);
 
   function posList(pos) {
     // for (let i = 0; i < props.defenseData.length; i++) {
@@ -39,10 +41,10 @@ function PointsByPosition(props) {
     posList(e.target.value);
   }
 
-  function posDisplay(e) {
-    e.preventDefault();
-    console.log("teamtoshow!", posToShow);
-  }
+  // function posDisplay(e) {
+  //   e.preventDefault();
+  //   console.log("teamtoshow!", posToShow);
+  // }
 
   function launchDisplay() {
     if (posToShow == "null") {

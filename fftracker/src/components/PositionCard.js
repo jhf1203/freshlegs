@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 
 function PositionCard(props) {
-  console.log("position card props: ", props);
 
   return (
     <div>
