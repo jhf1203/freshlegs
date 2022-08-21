@@ -4,6 +4,19 @@
 
 
 
+/* PositionCard.js */
+
+.col-logo-position{ 
+  background-size: cover;
+  border-right: 1px solid #000
+
+}
+
+.row-card{
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 75px;
+}
 
 /* TeamCard.js */
 

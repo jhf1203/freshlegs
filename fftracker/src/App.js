@@ -95,6 +95,7 @@ function App() {
       qbArr.points.push({
         team: defenseData[i].Team,
         points: defenseData[i].QuarterbackFantasyPointsAllowed,
+        logo: arrLogos[i]
       });
     }
     arrSort(qbArr);
@@ -106,6 +107,7 @@ function App() {
       rbArr.points.push({
         team: defenseData[i].Team,
         points: defenseData[i].RunningbackFantasyPointsAllowed,
+        logo: arrLogos[i]
       });
     }
     arrSort(rbArr);
@@ -117,6 +119,7 @@ function App() {
       wrArr.points.push({
         team: defenseData[i].Team,
         points: defenseData[i].WideReceiverFantasyPointsAllowed,
+        logo: arrLogos[i]
       });
     }
     arrSort(wrArr);
@@ -128,6 +131,7 @@ function App() {
       teArr.points.push({
         team: defenseData[i].Team,
         points: defenseData[i].TightEndFantasyPointsAllowed,
+        logo: arrLogos[i]
       });
     }
     arrSort(teArr);
@@ -139,6 +143,7 @@ function App() {
       kArr.points.push({
         team: defenseData[i].Team,
         points: defenseData[i].KickerFantasyPointsAllowed,
+        logo: arrLogos[i]
       });
     }
     arrSort(kArr);
@@ -150,6 +155,7 @@ function App() {
       dstArr.points.push({
         team: defenseData[i].Team,
         points: defenseData[i].FantasyPointsAllowed,
+        logo: arrLogos[i]
       });
     }
     arrSort(dstArr);

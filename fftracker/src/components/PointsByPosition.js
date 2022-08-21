@@ -36,7 +36,6 @@ console.log("position props: ", props)
 
   function posSelect(e) {
     e.preventDefault();
-    console.log(e.target.value);
     setPosToShow(e.target.value);
     posList(e.target.value);
   }
