@@ -1,29 +1,25 @@
 import { React, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 
-function PositionCard(props) {
-  console.log("position card props: ", props);
+import PositionField from "./PositionField";
 
+function PositionCard(props) {
   return (
     <div>
       <Row>
-        <p>{props.data[0].position} PPG allowed</p>
+        <p>{props.data[0].points.position} PPG allowed</p>
       </Row>
-      {props.data[0].points.map((team) => {
-        return (
-          <Row className="row-card mt-4">
-            <Col
-              md="2"
-              className="col-logo-position"
-              style={{ backgroundImage: `url(${team.logo})` }}
-            ></Col>
-            <Col md="2"></Col>
-            <Col md="1">
-              <p>{(team.points / 16).toFixed(1)}</p>
-            </Col>
-          </Row>
-        );
-      })}
+      <Row>
+        {props.data[0].points.points.map((team) => {
+          return (
+            <PositionField
+              team={team}
+              avgs={props.data[0].avg}
+              rank={props.data[0].points.points.indexOf(team) + 1}
+            />
+          );
+        })}
+      </Row>
     </div>
   );
 }

@@ -15,19 +15,34 @@ function PointsByPosition(props) {
     // for (let i = 0; i < props.defenseData.length; i++) {
     switch (pos) {
       case "QB":
-        statsArr.push(props.sortedPoints[0]);
+        statsArr.push({
+          points: props.sortedPoints[0],
+          avg: props.posAverages[0],
+        });
         break;
       case "RB":
-        statsArr.push(props.sortedPoints[1]);
+        statsArr.push({
+          points: props.sortedPoints[1],
+          avg: props.posAverages[1],
+        });
         break;
       case "WR":
-        statsArr.push(props.sortedPoints[2]);
+        statsArr.push({
+          points: props.sortedPoints[2],
+          avg: props.posAverages[2],
+        });
         break;
       case "TE":
-        statsArr.push(props.sortedPoints[3]);
+        statsArr.push({
+          points: props.sortedPoints[3],
+          avg: props.posAverages[3],
+        });
         break;
       case "K":
-        statsArr.push(props.sortedPoints[4]);
+        statsArr.push({
+          points: props.sortedPoints[4],
+          avg: props.posAverages[4],
+        });
     }
     setPosData(statsArr);
     // }
