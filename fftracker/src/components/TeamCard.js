@@ -2,6 +2,8 @@ import React from "react";
 
 import { Row, Col, Card } from "react-bootstrap";
 
+import TeamRow from "./TeamRow";
+
 function TeamCard(props) {
   console.log("team card props: ", props);
   return (
@@ -11,24 +13,24 @@ function TeamCard(props) {
         style={{ backgroundImage: `url(${props.stats.teamLogo}` }}
       >
         <Card.Body className="team-card-body">
-          <p>Team Name: {props.stats.teamName}</p>
-          <p>
-            QB PPG Allowed: {(props.stats.ranks[0].qbPoints / 16).toFixed(1)}{" "}
-          </p>
-          <p>
-            RB PPG Allowed: {(props.stats.ranks[1].rbPoints / 16).toFixed(1)}
-          </p>
-          <p>
-            WR PPG Allowed: {(props.stats.ranks[2].wrPoints / 16).toFixed(1)}
-          </p>
-          <p>
-            TE PPG Allowed: {(props.stats.ranks[3].tePoints / 16).toFixed(1)}
-          </p>
-          <p>K PPG Allowed: {(props.stats.ranks[4].kPoints / 16).toFixed(1)}</p>
-          <p>
-            Total PPG Allowed:{" "}
-            {(props.stats.ranks[5].dstPoints / 16).toFixed(1)}
-          </p>
+          <p>{props.stats.teamName}</p>
+          <Row>
+            <Col md="3">
+              <p>Position</p>
+            </Col>
+            <Col md="3">
+              <p>PPG Allowed</p>
+            </Col>
+            <Col md="3">
+              <p>League Rank</p>
+            </Col>
+            <Col md="3">
+              <p>Differential</p>
+            </Col>
+          </Row>
+          {props.stats.ranks.map((pos) => {
+            return <TeamRow stats={pos} />;
+          })}
         </Card.Body>
       </Card>
     </div>
