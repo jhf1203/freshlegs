@@ -223,11 +223,11 @@ function StatsByTeam(props) {
     findTeam(e.target.value);
   }
 
-  function teamDisplay(e) {
-    e.preventDefault();
-    console.log("teamtoshow!", teamToShow);
+  // function teamDisplay(e) {
+  //   e.preventDefault();
+  //   console.log("teamtoshow!", teamToShow);
     // findTeam(teamToShow);
-  }
+  // }
 
   function launchDisplay() {
     if (teamToShow == "null") {
@@ -238,8 +238,8 @@ function StatsByTeam(props) {
   }
 
   return (
-    <div>
-      <Row>
+    <div style={{marginLeft: "5%", marginRight: "5%"}}>
+      <Row >
         <Form>
           <Row>
             <Col md="12">

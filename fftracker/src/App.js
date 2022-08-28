@@ -47,6 +47,7 @@ function App() {
   const [pointData, setPointData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
   const [avgData, setAvgData] = useState("");
+  const [bottomBorder, setBottomBorder] = useState(["1px solid black", "1px solid black"])
   // const [teamData, setTeamData] = useState([]);
   const [infoToShow, setInfoToShow] = useState("instruction");
 
@@ -89,6 +90,11 @@ function App() {
     logoTen,
     logoWas,
   ];
+
+  let arrColors = [
+    "#AF2A4B", "#0D0D0D", "#373992", "#0D3D94", "#D3D4D6", "#0E1E49", "#0D0D0D", "#EC4033", "#B6BBBE", "#0D2C4E", "#B4BBBF", "#F7BA44", "#112B39", "#104477", "#2A6E7E", "#CC303A", "#2E86C8", "#0D3F99", "#A5AFB2", "#3D959C", "#68328E", "#182E4A", "#2E2A2B", "#0D296E", "#28614A", "#1D515A", "#2E2A2B", "#0D2C4E", "#B79E65", "#3C3A36", "#0D2C50", "#0D0D0D"
+  ]
+
   let qbArr = { position: "Quarterbacks", points: [] };
   let rbArr = { position: "Running Backs", points: [] };
   let wrArr = { position: "Wide Receivers", points: [] };
@@ -113,6 +119,8 @@ function App() {
   ];
 
   let avgArr = [];
+
+  // let bottomBorder = ["1px solid black", "1px solid black"]
 
   function arrSort(arr) {
     arr.points.sort((a, b) => {
@@ -149,6 +157,7 @@ function App() {
         team: defenseData[i].Team,
         points: defenseData[i].QuarterbackFantasyPointsAllowed,
         logo: arrLogos[i],
+        color: arrColors[i]
       });
     }
     arrSort(qbArr);
@@ -162,6 +171,8 @@ function App() {
         team: defenseData[i].Team,
         points: defenseData[i].RunningbackFantasyPointsAllowed,
         logo: arrLogos[i],
+        color: arrColors[i]
+
       });
     }
     arrSort(rbArr);
@@ -175,6 +186,8 @@ function App() {
         team: defenseData[i].Team,
         points: defenseData[i].WideReceiverFantasyPointsAllowed,
         logo: arrLogos[i],
+        color: arrColors[i]
+
       });
     }
     arrSort(wrArr);
@@ -188,6 +201,8 @@ function App() {
         team: defenseData[i].Team,
         points: defenseData[i].TightEndFantasyPointsAllowed,
         logo: arrLogos[i],
+        color: arrColors[i]
+
       });
     }
     arrSort(teArr);
@@ -201,6 +216,8 @@ function App() {
         team: defenseData[i].Team,
         points: defenseData[i].KickerFantasyPointsAllowed,
         logo: arrLogos[i],
+        color: arrColors[i]
+
       });
     }
     arrSort(kArr);
@@ -214,6 +231,8 @@ function App() {
         team: defenseData[i].Team,
         points: defenseData[i].FantasyPointsAllowed,
         logo: arrLogos[i],
+        color: arrColors[i]
+
       });
     }
     arrSort(dstArr);
@@ -248,6 +267,7 @@ function App() {
     if (infoToShow == "instruction") {
       return <InstructionText />;
     } else if (infoToShow == "positions") {
+      // setBottomBorder(["1px solid black", "none"])
       return (
         <PointsByPosition
           defenseData={defenseData}
@@ -259,6 +279,7 @@ function App() {
         />
       );
     } else {
+      // setBottomBorder(["none", "1px solid black"])
       return (
         <StatsByTeam
           defenseData={defenseData}
@@ -288,27 +309,42 @@ function App() {
     <div className="App">
       <Container fluid>
         <Row>
+          <header>
+            <h1>
+              A fantasy football tracking app!!!
+            </h1>
+          </header>
+        </Row>
+        <Row>
           <Col md="1"></Col>
-          <Col md="3">This will be a section to describe stuff</Col>
+          <Col md="3" >This will be a section to describe stuff</Col>
           <Col md="1"></Col>
-          <Col md="6">
-            <Row style={{ border: "1px solid black" }}>
-              <Col
-                md="6"
-                style={{ borderRight: "1px solid black" }}
-                onClick={showTeams}
-              >
-                <p>All stats by team</p>
+          <Col md="6" >
+            <Row className="row-main">
+              <Col md="12">
+                <Row >
+                  <Col
+                    md="6"
+                    style={{ borderLeft: "1px solid black", borderTop: "1px solid black", borderRight: "1px solid black", borderBottom: bottomBorder[0] }}
+                    onClick={showTeams}
+                    className="col-tab"
+                  >
+                    <p>PPG by team (all positions)</p>
+                  </Col>
+                  <Col md="6" onClick={showPositions}  className="col-tab" style={{ borderTop: "1px solid black", borderRight: "1px solid black", borderBottom: bottomBorder[1] }}>
+                    <p>PPG by position (all teams)</p>
+                  </Col>
+                </Row>
+                <Row className="row-info-container">
+                  <Col md="12" className="mt-5">{setVisible()}</Col>
+                </Row>
               </Col>
-              <Col md="6" onClick={showPositions}>
-                <p>Fantasy Points by position</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col md="12">{setVisible()}</Col>
             </Row>
           </Col>
           <Col md="1"></Col>
+        </Row>
+        <Row className="footer-row">
+          This will be a footer
         </Row>
       </Container>
     </div>

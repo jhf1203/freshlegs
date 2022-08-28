@@ -3,7 +3,11 @@ import { Row, Col } from "react-bootstrap";
 
 import PositionField from "./PositionField";
 
+
 function PositionCard(props) {
+
+  console.log("position card: ", props)
+
   return (
     <div>
       <Row>
