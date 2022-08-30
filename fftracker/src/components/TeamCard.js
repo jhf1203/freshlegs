@@ -7,14 +7,13 @@ import TeamRow from "./TeamRow";
 function TeamCard(props) {
   console.log("team card props: ", props);
   return (
-    <div >
-      <div
-        className="team-card mt-5 mb-5"
-        style={{ backgroundImage: `url(${props.stats.teamLogo}` }}
-      >
-        <div className="team-card-body">
-          <p>{props.stats.teamName}</p>
-          <Row>
+    <div className="mt-3 card-height-fix " >
+      <p className="text-team-name">{props.stats.teamName}</p>
+      <Row className="team-card mt-3 mb-5 margin-spacer-5"
+        style={{ backgroundImage: `url(${props.stats.teamLogo}` }}>
+        <Col md="12" className="team-card-body">
+          
+          <Row className="row-team-card-header">
             <Col md="3">
               <p>Position</p>
             </Col>
@@ -31,8 +30,9 @@ function TeamCard(props) {
           {props.stats.ranks.map((pos) => {
             return <TeamRow stats={pos} />;
           })}
-        </div>
-      </div>
+        </Col>
+      
+      </Row>
     </div>
   );
 }

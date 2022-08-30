@@ -9,11 +9,11 @@ function PositionCard(props) {
   console.log("position card: ", props)
 
   return (
-    <div>
+    <div className="card-height-fix">
       <Row>
         <p>{props.data[0].points.position} PPG allowed</p>
       </Row>
-      <Row>
+      <Row >
         {props.data[0].points.points.map((team) => {
           return (
             <PositionField

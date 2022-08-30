@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 
 import TeamCard from "./TeamCard";
+import PlaceholderCard from "./PlaceholderCard";
 
 function StatsByTeam(props) {
   const [teamToShow, setTeamToShow] = useState("null");
@@ -173,42 +174,42 @@ function StatsByTeam(props) {
               rank: props.teamRankings[0].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[0].avg,
               stdev: props.posAverages[0].stdev,
-              position: "QB"
+              position: "QB",
             },
             {
               points: props.defenseData[i].RunningbackFantasyPointsAllowed,
               rank: props.teamRankings[1].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[1].avg,
               stdev: props.posAverages[1].stdev,
-              position: "RB"
+              position: "RB",
             },
             {
               points: props.defenseData[i].WideReceiverFantasyPointsAllowed,
               rank: props.teamRankings[2].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[2].avg,
               stdev: props.posAverages[2].stdev,
-              position: "WR"
+              position: "WR",
             },
             {
               points: props.defenseData[i].TightEndFantasyPointsAllowed,
               rank: props.teamRankings[3].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[3].avg,
               stdev: props.posAverages[3].stdev,
-              position: "TE"
+              position: "TE",
             },
             {
               points: props.defenseData[i].KickerFantasyPointsAllowed,
               rank: props.teamRankings[4].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[4].avg,
               stdev: props.posAverages[4].stdev,
-              position: "K"
+              position: "K",
             },
             {
               points: props.defenseData[i].FantasyPointsAllowed,
               rank: props.teamRankings[5].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[5].avg,
               stdev: props.posAverages[5].stdev,
-              position: "Overall"
+              position: "Overall",
             },
           ],
         });
@@ -223,27 +224,21 @@ function StatsByTeam(props) {
     findTeam(e.target.value);
   }
 
-  // function teamDisplay(e) {
-  //   e.preventDefault();
-  //   console.log("teamtoshow!", teamToShow);
-    // findTeam(teamToShow);
-  // }
-
   function launchDisplay() {
     if (teamToShow == "null") {
-      return "Select a team to see their stats";
+      return <PlaceholderCard title="team" />;
     } else {
       return <TeamCard team={teamToShow} stats={currentTeam} />;
     }
   }
 
   return (
-    <div style={{marginLeft: "5%", marginRight: "5%"}}>
-      <Row >
+    <div>
+      <Row className="margin-spacer-5">
         <Form>
           <Row>
             <Col md="12">
-              <Form.Select onChange={teamSelect}>
+              <Form.Select placeholder="Select a Team" onChange={teamSelect}>
                 {teamArr.map((team) => {
                   return <option>{team}</option>;
                 })}

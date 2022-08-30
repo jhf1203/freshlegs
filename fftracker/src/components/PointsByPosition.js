@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import PlaceholderCard from "./PlaceholderCard";
 
 import PositionCard from "./PositionCard";
 function PointsByPosition(props) {
@@ -61,7 +62,7 @@ function PointsByPosition(props) {
 
   function launchDisplay() {
     if (posToShow == "null") {
-      return "select a position to view data";
+      return <PlaceholderCard title="position" />;
     } else {
       return <PositionCard pos={posToShow} data={posData} />;
     }
@@ -69,11 +70,11 @@ function PointsByPosition(props) {
 
   return (
     <div>
-      <Row>
+      <Row className="margin-spacer-5">
         <Form>
           <Row>
             <Col md="12">
-              <Form.Select onChange={posSelect}>
+              <Form.Select placeholder="Select a Position" onChange={posSelect}>
                 {positionArr.map((pos) => {
                   return <option>{pos}</option>;
                 })}

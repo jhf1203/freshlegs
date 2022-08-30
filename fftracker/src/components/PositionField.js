@@ -29,25 +29,25 @@ function PositionField(props) {
           className="col-logo-position"
           style={{ backgroundImage: `url(${props.team.logo})` }}
         ></Col>
-        <Col md="3">
+        <Col md="3" className="col-field">
           <Row className="row-positionfield-sub">
-            <p>Average</p>
+            <p className="text-field-header">Average</p>
           </Row>
           <Row>
-            <p>{teamAvg}</p>
+            <p className="text-avg">{teamAvg}</p>
           </Row>
         </Col>
-        <Col md="3">
+        <Col md="3" className="col-field">
           <Row className="row-positionfield-sub">
-            <p>League Rank</p>
+            <p className="text-field-header">League Rank</p>
           </Row>
           <Row className="section-stats">
             <p className="text-rank">{props.rank}</p>
           </Row>
         </Col>
-        <Col md="3">
+        <Col md="3" className="col-field">
           <Row className="row-positionfield-sub">
-            <p>Differential</p>
+            <p className="text-field-header">Differential</p>
           </Row>
           <Row className="section-stats">
             <p style={{color: textColor}}>{newDiff}</p>

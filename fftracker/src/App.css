@@ -1,13 +1,12 @@
-
 body {
   background-image: url("./assets/imgs-other/bkgd.jpeg");
-  font-family: 'Urbanist', sans-serif !important;
+  font-family: "Urbanist", sans-serif !important;
 }
 
 header {
   background-color: #fff;
   border-bottom: 1px solid #111;
-  margin-bottom: 5%
+  margin-bottom: 5%;
 }
 
 .App {
@@ -16,91 +15,121 @@ header {
 
 /* App.js */
 
-
-.col-tab{
-  background-color: #fff
+.col-tab {
+  background-color: #fff;
+  cursor: pointer;
 }
 
-.footer-row{
-  margin-top: 5% !important
+.footer-row {
+  margin-top: 5% !important;
 }
 
-.row-info-container{
+.row-info-container {
   background-color: #fff;
   opacity: 0.95;
   border-left: 2px solid #111;
   border-right: 2px solid #111;
-  border-bottom: 2px solid #111
+  border-bottom: 2px solid #111;
 }
 
-.col-main{
+.col-main {
   height: 600px;
   overflow-y: scroll;
 }
 
+/* Shared */
+
+.margin-spacer-5 {
+  margin: 0 5% !important;
+}
+
+.card-height-fix {
+  height: 475px;
+  overflow-y: scroll;
+}
+
+/* PlaceholderCard.js */
+
+.text-placeholder-header {
+  font-family: "Kanit", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.text-placeholder-subhead {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
 /* PositionCard.js */
 
-.col-logo-position{ 
+.col-logo-position {
   background-size: cover;
   background-repeat: no-repeat;
   border-right: 1px solid #000;
   height: 100%;
   width: 20% !important;
-
 }
 
-.row-card{
+.row-card {
   background-color: #fff;
   border: 1px solid black;
   margin: 2% !important;
   border-radius: 4px;
   height: 75px;
-  opacity: 0.95
+  opacity: 0.95;
 }
 
 /* PositionField.js */
 
 .row-positionfield-sub {
   border-bottom: 1px solid #111;
-  height: 33%;
+  height: 34%;
 }
 
-.col-right{
-  width: 5% !important;
+.col-field {
+  height: 100%;
   border-left: 1px solid #111;
-  height: 100%
 }
 
-.section-stats{
+.col-right {
+  width: 5% !important;
+  border-left: 3px solid #111;
+  height: 100%;
+}
+
+.section-stats {
   background-color: #111;
   color: #fff;
-  font-family: 'Sarpanch', sans-serif;
-  font-size: 24px;
-  height: 43%;
-  padding-top: 3%;
+  font-family: "Sarpanch", sans-serif;
+  font-size: 36px;
+  height: 67%;
+  padding-bottom: 4% !important;
 }
 
-.text-rank{
-  /* color: #fff;
-  font-family: 'Sarpanch', sans-serif;
-  font-size: 24px;
-  margin: 0px;
-  padding: 0px; */
+.text-avg {
+  font-family: "Sarpanch", sans-serif;
+  font-size: 36px;
+  padding-bottom: 2%;
+}
 
+.text-field-header {
+  font-weight: 300;
 }
 
 /* TeamCard.js */
 
-.team-card{
-  background-size: cover ;
+.team-card {
+  background-size: cover;
   background-repeat: no-repeat;
   border: 1px solid #000 !important;
-  /* border: none !important; */
   border-radius: 4px;
   height: 364px !important;
-  padding: 10px
- 
-  
+  padding: 10px;
 }
 
 .team-card-body {
@@ -108,5 +137,61 @@ header {
   border: 1px solid #000;
   border-radius: 4px;
   opacity: 0.93;
-  margin: 2%
+  /* margin: 2% 2% 2% 2%; */
+  width: 100%;
+}
+
+.text-team-name {
+  font-family: "Kanit", sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.row-team-card-header {
+  font-weight: 300;
+  height: 10%;
+}
+
+/* TeamRow.js */
+
+.row-team-row {
+  border-top: 1px solid #fff;
+}
+
+.col-team-row {
+  border-left: 1px solid #fff;
+  padding: 0% !important;
+  width: 25% !important;
+  margin-bottom: 0;
+}
+
+.col-team-row-dark {
+  border-top: 1px solid #111;
+  border-right: 1px solid #111;
+}
+
+.text-team-row-position {
+  width: 100%;
+  font-family: "Sarpanch", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.text-team-row-avg {
+  font-family: "Sarpanch", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.text-team-row-rank {
+  background-color: #111;
+  color: #fff;
+  font-family: "Sarpanch", sans-serif;
+  font-size: 22px;
+}
+
+.text-team-row-zscore {
+  background-color: #111;
+  font-family: "Sarpanch", sans-serif;
+  font-size: 22px;
 }
