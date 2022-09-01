@@ -16,18 +16,28 @@ function PlaceholderCard(props) {
       p2:
         "For each team listed you'll see the average point total they allow that position, how they compare vs. the other teams in the league, and how better or worse than average they've performed so far.  This is reflected as the differential.  For more information about differential refer to the sidebar",
     },
+    {
+      p1:
+        "After that you'll see a bit of information related to fantasy defense performance.  You can either view points allowed to each position by team, or a ranked list of teams and how their defense performs against a specific position",
+      p2:
+        "There are a number of data points to view and several more that are in the works.  Currently you can see how many fantasy points, on average, each team is allowing a given position.  Additionally you can see where they rank in terms of the rest of the league, and how close or far to the average that team stands.",
+    },
   ];
   let textToDisplay;
 
-  props.title == "team" ? (textToDisplay = 0) : (textToDisplay = 1);
+  if (props.title == "a team") {
+    textToDisplay = 0;
+  } else if (props.title == "a position") {
+    textToDisplay = 1;
+  } else {
+    textToDisplay = 2;
+  }
 
   return (
     <div className="mt-5 card-height-fix">
       <Row className="margin-spacer-5 ">
         <Row>
-          <p className="text-justify text-placeholder-header">
-            Defensive PPG allowed by {props.title}
-          </p>
+          <p className="text-justify text-placeholder-header">{props.header}</p>
         </Row>
         <Row>
           <p className="text-justify text-placeholder-subhead">
@@ -36,7 +46,7 @@ function PlaceholderCard(props) {
         </Row>
         <Row>
           <p className="text-justify">
-            First, select a {props.title} from the dropdown menu above
+            First, select {props.title} from the {props.tool} above
           </p>
         </Row>
         <Row>

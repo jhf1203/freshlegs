@@ -6,8 +6,8 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import PointsByPosition from "./components/PointsByPosition";
 import StatsByTeam from "./components/StatsByTeam";
-import InstructionText from "./components/InstructionText";
 import lyRes from "./assets/2021res";
+import PlaceholderCard from "./components/PlaceholderCard";
 
 import logoAri from "./assets/logo-imgs/ari.png";
 import logoAtl from "./assets/logo-imgs/atl.png";
@@ -294,7 +294,13 @@ function App() {
 
   function setVisible() {
     if (infoToShow == "instruction") {
-      return <InstructionText />;
+      return (
+        <PlaceholderCard
+          title="an option"
+          tool="tabs"
+          header="Fantasy PPG Allowed"
+        />
+      );
     } else if (infoToShow == "positions") {
       // setBottomBorder(["1px solid black", "none"])
       return (
@@ -361,7 +367,7 @@ function App() {
                     onClick={showTeams}
                     className="col-tab"
                   >
-                    <p>PPG by team (all positions)</p>
+                    <p>All offensive positions by team</p>
                   </Col>
                   <Col
                     md="6"
@@ -373,7 +379,7 @@ function App() {
                       borderBottom: bottomBorder[1],
                     }}
                   >
-                    <p>PPG by position (all teams)</p>
+                    <p>All teams by offensive position</p>
                   </Col>
                 </Row>
                 <Row className="row-info-container">

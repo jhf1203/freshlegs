@@ -226,7 +226,13 @@ function StatsByTeam(props) {
 
   function launchDisplay() {
     if (teamToShow == "null") {
-      return <PlaceholderCard title="team" />;
+      return (
+        <PlaceholderCard
+          title="a team"
+          tool="dropdown menu"
+          header="PPG allowed by position"
+        />
+      );
     } else {
       return <TeamCard team={teamToShow} stats={currentTeam} />;
     }

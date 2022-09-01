@@ -55,14 +55,15 @@ function PointsByPosition(props) {
     posList(e.target.value);
   }
 
-  // function posDisplay(e) {
-  //   e.preventDefault();
-  //   console.log("teamtoshow!", posToShow);
-  // }
-
   function launchDisplay() {
     if (posToShow == "null") {
-      return <PlaceholderCard title="position" />;
+      return (
+        <PlaceholderCard
+          title="a position"
+          tool="dropdown menu"
+          header="PPG allowed by team"
+        />
+      );
     } else {
       return <PositionCard pos={posToShow} data={posData} />;
     }
