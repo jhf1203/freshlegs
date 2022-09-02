@@ -345,12 +345,67 @@ function App() {
       <Container fluid>
         <Row>
           <header>
-            <h1>A fantasy football tracking app!!!</h1>
+            <Row>
+              <h1 className="mb-0">FRESH LEGS</h1>
+            </Row>
+            <Row>
+              <h2 className="mt-0">Making smarter fantasy decisions</h2>
+            </Row>
           </header>
         </Row>
         <Row>
           <Col md="1"></Col>
-          <Col md="3">This will be a section to describe stuff</Col>
+          <Col md="3" className="row-welcome">
+            <Row className="margin-spacer-5">
+              <h3>Welcome!</h3>
+            </Row>
+            <Row className="margin-spacer-5">
+              <p className="text-welcome">
+                Fresh Legs is a data tool to help you make better lineup
+                decisions.
+              </p>
+            </Row>
+            <Row className="margin-spacer-5">
+              <p className="text-welcome">
+                We use the SportsData API to aggregate Fantasy Football scoring
+                information from multiple leagues including Yahoo, Draft Kings,
+                and many others.
+              </p>
+            </Row>
+            <Row className="margin-spacer-5">
+              <p className="text-welcome">
+                Across these data sources, we calculate points scored by
+                opposing offensive positions against a given team
+              </p>
+            </Row>
+            <Row className="margin-spacer-5">
+              <ul className="text-welcome">
+                This can help you make daily and weekly decisions such as:
+                <Row className="margin-spacer-5">
+                  <li className="text-welcome margin-spacer-5">
+                    Flex player decisions
+                  </li>
+                </Row>
+                <Row className="margin-spacer-5">
+                  <li className="text-welcome margin-spacer-5">
+                    Waiver Wire Acquisitions
+                  </li>
+                </Row>
+                <Row className="margin-spacer-5">
+                  <li className="text-welcome margin-spacer-5">
+                    D/ST Selection
+                  </li>
+                </Row>
+              </ul>
+              
+            </Row>
+            <Row className="margin-spacer-5">
+                <p className="text-welcome">...and much more!</p>
+              </Row>
+              <Row className="margin-spacer-5">
+                <p className="text-welcome">Get started to the right, to make sure you've always got a set of <span className="span-text-fresh-legs">fresh legs!</span></p>
+              </Row>
+          </Col>
           <Col md="1"></Col>
           <Col md="6">
             <Row className="row-main">
@@ -392,7 +447,12 @@ function App() {
           </Col>
           <Col md="1"></Col>
         </Row>
-        <Row className="footer-row">This will be a footer</Row>
+        <Row className="footer-row">
+          <Col md="5"></Col>
+          <Col md="7">
+            <p className="text-footer">Jim Faulkner | <span className="span-footer-year">2022</span> | Fresh Legs | <a href="https://sportsdata.io/developers/api-documentation/nfl#/sports-data/stats-feeds" target="_blank">SportsDataIO</a></p>
+            </Col>
+        </Row>
       </Container>
     </div>
   );
