@@ -227,7 +227,7 @@ function StatsByTeam(props) {
         <PlaceholderCard
           title="a team"
           tool="dropdown menu"
-          header="PPG allowed by position"
+          header="PPG allowed by team"
         />
       );
     } else {

@@ -59,7 +59,7 @@ function PointsByPosition(props) {
         <PlaceholderCard
           title="a position"
           tool="dropdown menu"
-          header="PPG allowed by team"
+          header="PPG allowed by position"
         />
       );
     } else {
