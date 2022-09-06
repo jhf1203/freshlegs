@@ -250,7 +250,7 @@ header {
   font-size: 22px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   /* PositionField.js */
   .col-field {
     width: 85px !important;
