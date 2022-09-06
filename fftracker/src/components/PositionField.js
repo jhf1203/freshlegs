@@ -5,21 +5,19 @@ function PositionField(props) {
   let teamAvg = (props.team.points / 16).toFixed(1);
   let diff = (props.avgs.avg - teamAvg) / props.avgs.stdev;
   let newDiff;
-  let textColor
+  let textColor;
 
-  if (diff > 1.5 ) {
-    textColor = "#328CCB"
+  if (diff > 1.5) {
+    textColor = "#328CCB";
   } else if (diff > 0.5) {
-    textColor = "#2B6953"
+    textColor = "#2B6953";
   } else if (diff < -0.5) {
-    textColor = "#AE2F42"
+    textColor = "#AE2F42";
   } else {
-    textColor = "#FBD64A"
+    textColor = "#FBD64A";
   }
 
   diff > 0 ? (newDiff = `+${diff.toFixed(2)}`) : (newDiff = diff.toFixed(2));
-
-  console.log("position field: ", props);
 
   return (
     <div>
@@ -50,10 +48,16 @@ function PositionField(props) {
             <p className="text-field-header">Differential</p>
           </Row>
           <Row className="section-stats">
-            <p style={{color: textColor}}>{newDiff}</p>
+            <p className="text-diff" style={{ color: textColor }}>
+              {newDiff}
+            </p>
           </Row>
         </Col>
-        <Col md="1" className="col-right" style={{ backgroundColor: props.team.color }}></Col>
+        <Col
+          md="1"
+          className="col-right"
+          style={{ backgroundColor: props.team.color }}
+        ></Col>
       </Row>
     </div>
   );

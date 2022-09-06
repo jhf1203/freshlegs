@@ -4,8 +4,6 @@ import PlaceholderCard from "./PlaceholderCard";
 
 import PositionCard from "./PositionCard";
 function PointsByPosition(props) {
-  console.log("position props: ", props);
-
   const [posToShow, setPosToShow] = useState("null");
   const [posData, setPosData] = useState([]);
 

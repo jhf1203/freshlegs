@@ -31,7 +31,6 @@ function StatsByTeam(props) {
     let teamColors = ["#fff", "#000", "#000"];
     for (let i = 0; i < props.defenseData.length; i++) {
       if (props.defenseData[i].Team == team) {
-        console.log("we found the team!  It's ", team);
         switch (team) {
           case "ARI":
             teamName = "Arizona Cardinals";
@@ -164,7 +163,6 @@ function StatsByTeam(props) {
           default:
             teamName = "some other name";
         }
-        console.log("name is now: ", teamName);
         setCurrentTeam({
           teamName: teamName,
           teamLogo: teamLogo,
@@ -209,7 +207,7 @@ function StatsByTeam(props) {
               rank: props.teamRankings[5].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[5].avg,
               stdev: props.posAverages[5].stdev,
-              position: "Overall",
+              position: "Tot.",
             },
           ],
         });
@@ -219,7 +217,6 @@ function StatsByTeam(props) {
 
   function teamSelect(e) {
     e.preventDefault();
-    console.log(e.target.value);
     setTeamToShow(e.target.value);
     findTeam(e.target.value);
   }
