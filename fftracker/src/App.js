@@ -127,6 +127,7 @@ function App() {
     "#0D0D0D",
   ];
 
+
   let qbArr = { position: "Quarterbacks", points: [] };
   let rbArr = { position: "Running Backs", points: [] };
   let wrArr = { position: "Wide Receivers", points: [] };
@@ -152,7 +153,6 @@ function App() {
 
   let avgArr = [];
 
-  // let bottomBorder = ["1px solid black", "1px solid black"]
 
   function arrSort(arr) {
     arr.points.sort((a, b) => {
@@ -319,7 +319,7 @@ function App() {
         />
       );
     } else if (infoToShow == "positions") {
-      // setBottomBorder(["1px solid black", "none"])
+     
       return (
         <PointsByPosition
           defenseData={defenseData}
@@ -331,7 +331,7 @@ function App() {
         />
       );
     } else {
-      // setBottomBorder(["none", "1px solid black"])
+    
       return (
         <StatsByTeam
           defenseData={defenseData}

@@ -70,7 +70,7 @@ function PointsByPosition(props) {
   return (
     <div>
       <Row className="margin-spacer-5">
-        <Form>
+        <Form className="mb-5">
           <Row>
             <Col md="12">
               <Form.Select placeholder="Select a Position" onChange={posSelect}>
