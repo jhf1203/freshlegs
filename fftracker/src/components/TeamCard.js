@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 import TeamRow from "./TeamRow";
 
@@ -21,7 +21,7 @@ function TeamCard(props) {
               <p>PPG Allowed</p>
             </Col>
             <Col className="col-team-card-header" md="3">
-              <p>League Rank</p>
+              <p>Rank</p>
             </Col>
             <Col className="col-team-card-header" md="3">
               <p>Differential</p>

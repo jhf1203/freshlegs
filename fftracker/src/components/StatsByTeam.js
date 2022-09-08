@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 
 import TeamCard from "./TeamCard";
 import PlaceholderCard from "./PlaceholderCard";
@@ -28,7 +28,6 @@ function StatsByTeam(props) {
   function findTeam(team) {
     let teamName;
     let teamLogo;
-    let teamColors = ["#fff", "#000", "#000"];
     for (let i = 0; i < props.defenseData.length; i++) {
       if (props.defenseData[i].Team == team) {
         switch (team) {

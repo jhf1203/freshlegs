@@ -1,7 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 
 import PointsByPosition from "./components/PointsByPosition";
@@ -184,6 +182,25 @@ function App() {
       arr2.push(arr1[i].team);
     }
   }
+
+
+
+  // function calcTotals(points, field, arr1, arr2, str) {
+  //   for (let i=0; i<defenseData.length; i++) {
+  //     points.push({
+  //       team: defenseData[i].Team,
+  //       points: defenseData[i].field,
+  //       logo: arrLogos[i],
+  //       color: arrColors[i]
+  //     })
+  //   }
+  //   arrSort(arr1)
+  //   pushTeams(points, arr2);
+  //   calcAvg(arr1, str)
+  //   console.log("some arrays: ", arr1, arr2)
+  // }
+
+  // calcTotals(qbArr.points, QuarterbackFantasyPointsAllowed, qbArr, qbRanks, "QB")
 
   function qbCalc() {
     for (let i = 0; i < defenseData.length; i++) {
