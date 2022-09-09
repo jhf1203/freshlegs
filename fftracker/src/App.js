@@ -127,7 +127,6 @@ function App() {
     "#0D0D0D",
   ];
 
-
   let qbArr = { position: "Quarterbacks", points: [] };
   let rbArr = { position: "Running Backs", points: [] };
   let wrArr = { position: "Wide Receivers", points: [] };
@@ -152,7 +151,6 @@ function App() {
   ];
 
   let avgArr = [];
-
 
   function arrSort(arr) {
     arr.points.sort((a, b) => {
@@ -182,8 +180,6 @@ function App() {
       arr2.push(arr1[i].team);
     }
   }
-
-
 
   // function calcTotals(points, field, arr1, arr2, str) {
   //   for (let i=0; i<defenseData.length; i++) {
@@ -319,7 +315,6 @@ function App() {
         />
       );
     } else if (infoToShow == "positions") {
-     
       return (
         <PointsByPosition
           defenseData={defenseData}
@@ -331,7 +326,6 @@ function App() {
         />
       );
     } else {
-    
       return (
         <StatsByTeam
           defenseData={defenseData}
@@ -414,14 +408,16 @@ function App() {
                   </li>
                 </Row>
               </ul>
-              
             </Row>
             <Row className="margin-spacer-5">
-                <p className="text-welcome">...and much more!</p>
-              </Row>
-              <Row className="margin-spacer-5">
-                <p className="text-welcome">Get started to the right, to make sure you've always got a set of <span className="span-text-fresh-legs">fresh legs!</span></p>
-              </Row>
+              <p className="text-welcome">...and much more!</p>
+            </Row>
+            <Row className="margin-spacer-5">
+              <p className="text-welcome">
+                Get started to the right, to make sure you've always got a set
+                of <span className="span-text-fresh-legs">fresh legs!</span>
+              </p>
+            </Row>
           </Col>
           <Col md="1"></Col>
           <Col md="6">
@@ -467,8 +463,17 @@ function App() {
         <Row className="footer-row">
           <Col md="5"></Col>
           <Col md="7">
-            <p className="text-footer">Jim Faulkner | <span className="span-footer-year">2022</span> | Fresh Legs | <a href="https://sportsdata.io/developers/api-documentation/nfl#/sports-data/stats-feeds" target="_blank">SportsDataIO</a></p>
-            </Col>
+            <p className="text-footer">
+              Jim Faulkner | <span className="span-footer-year">2022</span> |
+              Fresh Legs |{" "}
+              <a
+                href="https://sportsdata.io/developers/api-documentation/nfl#/sports-data/stats-feeds"
+                target="_blank"
+              >
+                SportsDataIO
+              </a>
+            </p>
+          </Col>
         </Row>
       </Container>
     </div>

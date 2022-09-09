@@ -251,20 +251,19 @@ header {
 }
 
 @media (max-width: 600px) {
+  /* App.js */
 
-/* App.js */
+  .col-tab {
+    width: 50% !important;
+    font-size: 18px;
+  }
 
-.col-tab{
-  width: 50% !important;
-  font-size: 18px
-}
+  /* PlaceholderCard.js */
 
-/* PlaceholderCard.js */
-
-.text-placeholder-header{
-  font-size: 24px;
-  font-weight: 800
-}
+  .text-placeholder-header {
+    font-size: 24px;
+    font-weight: 800;
+  }
 
   /* PositionField.js */
   .col-field {
@@ -323,5 +322,75 @@ header {
 
   .col-team-row-dark {
     width: 70px !important;
+  }
+}
+
+@media (max-width: 840px) {
+  /* App.js */
+
+  .row-info-container {
+    height: 870px !important;
+  }
+
+  .row-welcome {
+    height: 935px !important;
+    overflow-y: scroll;
+  }
+
+  /* PlaceholderCard.js */
+
+  .row-desc {
+    height: 700px !important;
+    overflow-y: scroll;
+  }
+
+  .text-placeholder-header {
+    font-size: 26px;
+  }
+
+  /* PositionCard.js */
+
+  .text-team-name {
+    font-size: 27px;
+  }
+
+  /* PositionField.js */
+
+  .col-field {
+    width: 82px !important;
+  }
+
+  .col-right {
+    display: none;
+  }
+
+  .col-logo-position {
+    background-size: cover;
+    width: 120px !important;
+  }
+
+  .row-card {
+    height: 80px !important;
+  }
+
+  .text-avg,
+  .text-rank,
+  .text-diff {
+    font-size: 24px !important;
+    padding-top: 8%;
+  }
+
+  .text-field-header {
+    font-size: 14px;
+  }
+
+  /* TeamCard.js */
+
+  .col-team-card-header {
+    font-size: 12px;
+  }
+
+  .team-card-body {
+    height: 340px !important;
   }
 }

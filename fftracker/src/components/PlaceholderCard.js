@@ -34,8 +34,8 @@ function PlaceholderCard(props) {
   }
 
   return (
-    <div className="mt-5 card-height-fix">
-      <Row className="margin-spacer-5 ">
+    <div className="mt-5 card-height-fix  row-desc">
+      <Row className="margin-spacer-5">
         <Row>
           <p className="text-justify text-placeholder-header">{props.header}</p>
         </Row>
