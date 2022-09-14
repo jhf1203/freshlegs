@@ -3,7 +3,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 function TeamRow(props) {
-  let pointsAvg = (props.stats.points / 16).toFixed(1);
+  let pointsAvg = (props.stats.points / props.week).toFixed(1);
   let diff = ((props.stats.avg - pointsAvg) / props.stats.stdev).toFixed(2);
   let newDiff;
   let textColor;

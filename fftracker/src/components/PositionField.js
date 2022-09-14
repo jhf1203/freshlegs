@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 function PositionField(props) {
-  let teamAvg = (props.team.points / 16).toFixed(1);
+  let teamAvg = (props.team.points / props.week).toFixed(1);
   let diff = (props.avgs.avg - teamAvg) / props.avgs.stdev;
   let newDiff;
   let textColor;

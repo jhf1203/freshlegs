@@ -230,7 +230,7 @@ function StatsByTeam(props) {
         />
       );
     } else {
-      return <TeamCard team={teamToShow} stats={currentTeam} />;
+      return <TeamCard team={teamToShow} stats={currentTeam} week={props.week}/>;
     }
   }
 
