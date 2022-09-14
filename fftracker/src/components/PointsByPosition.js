@@ -11,7 +11,6 @@ function PointsByPosition(props) {
   let statsArr = [];
 
   function posList(pos) {
-    // for (let i = 0; i < props.defenseData.length; i++) {
     switch (pos) {
       case "QB":
         statsArr.push({
@@ -63,7 +62,7 @@ function PointsByPosition(props) {
         />
       );
     } else {
-      return <PositionCard pos={posToShow} data={posData} />;
+      return <PositionCard pos={posToShow} data={posData} week={props.week} />;
     }
   }
 

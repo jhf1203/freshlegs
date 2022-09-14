@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import PointsByPosition from "./components/PointsByPosition";
 import StatsByTeam from "./components/StatsByTeam";
-import lyRes from "./assets/2021res";
+import tyRes from "./assets/2022res";
 import PlaceholderCard from "./components/PlaceholderCard";
 
 import logoAri from "./assets/logo-imgs/ari.png";
@@ -41,7 +41,7 @@ import logoTen from "./assets/logo-imgs/ten.png";
 import logoWas from "./assets/logo-imgs/was.png";
 
 function App() {
-  const [defenseData, setDefenseData] = useState(lyRes);
+  const [defenseData, setDefenseData] = useState(tyRes);
   const [pointData, setPointData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
   const [avgData, setAvgData] = useState("");
@@ -49,13 +49,9 @@ function App() {
     "1px solid black",
     "1px solid black",
   ]);
-  // const [teamData, setTeamData] = useState([]);
   const [infoToShow, setInfoToShow] = useState("instruction");
 
-  // let season = "2021REG";
-  // let key = "b3035b452c504c9095fc1bacfad65548";
-  // let conStrDef = `https://api.sportsdata.io/v3/nfl/stats/json/FantasyDefenseBySeason/${season}?key=${key}`;
-  // let conStrTeam = `https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/${season}?key=${key}`;
+  let finishedWeeks = 1
 
   let arrLogos = [
     logoAri,
@@ -165,11 +161,11 @@ function App() {
     for (let i = 0; i < arr.points.length; i++) {
       sum = sum + arr.points[i].points;
     }
-    avg = (sum / 32 / 16).toFixed(1);
+    avg = (sum / 32 / finishedWeeks).toFixed(1);
     for (let i = 0; i < arr.points.length; i++) {
       stdevSum =
         stdevSum +
-        (arr.points[i].points / 16 - avg) * (arr.points[i].points / 16 - avg);
+        (arr.points[i].points / finishedWeeks - avg) * (arr.points[i].points / finishedWeeks - avg);
     }
     let stDev = Math.sqrt(stdevSum / arr.points.length).toFixed(1);
     avgArr.push({ position: pos, avg: avg, stdev: stDev });
@@ -322,6 +318,7 @@ function App() {
           teamRankings={rankingData}
           posAverages={avgData}
           teamLogos={arrLogos}
+          week = {finishedWeeks}
           // teamData={teamData}
         />
       );
@@ -333,6 +330,7 @@ function App() {
           teamRankings={rankingData}
           posAverages={avgData}
           teamLogos={arrLogos}
+          week = {finishedWeeks}
           // teamData={teamData}
         />
       );
