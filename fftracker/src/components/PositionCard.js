@@ -7,7 +7,9 @@ function PositionCard(props) {
   return (
     <div className="card-height-fix">
       <Row>
-        <p className="text-team-name">{props.data[0].points.position} PPG allowed</p>
+        <p className="text-team-name">
+          {props.data[0].points.position} PPG allowed
+        </p>
       </Row>
       <Row>
         {props.data[0].points.points.map((team) => {
@@ -16,7 +18,6 @@ function PositionCard(props) {
               team={team}
               avgs={props.data[0].avg}
               rank={props.data[0].points.points.indexOf(team) + 1}
-              week={props.week}
             />
           );
         })}
