@@ -4,6 +4,7 @@ import PlaceholderCard from "./PlaceholderCard";
 
 import PositionCard from "./PositionCard";
 function PointsByPosition(props) {
+  console.log("pointsbyposition: ", props);
   const [posToShow, setPosToShow] = useState("null");
   const [posData, setPosData] = useState([]);
 
@@ -62,7 +63,7 @@ function PointsByPosition(props) {
         />
       );
     } else {
-      return <PositionCard pos={posToShow} data={posData} week={props.week} />;
+      return <PositionCard pos={posToShow} data={posData} />;
     }
   }
 

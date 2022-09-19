@@ -28,7 +28,7 @@ function TeamCard(props) {
             </Col>
           </Row>
           {props.stats.ranks.map((pos) => {
-            return <TeamRow stats={pos} week={props.week} />;
+            return <TeamRow stats={pos} />;
           })}
         </Col>
       </Row>

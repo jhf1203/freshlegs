@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import PointsByPosition from "./components/PointsByPosition";
 import StatsByTeam from "./components/StatsByTeam";
-import tyRes from "./assets/2022res";
+import testRes from "./assets/sample";
 import PlaceholderCard from "./components/PlaceholderCard";
 
 import logoAri from "./assets/logo-imgs/ari.png";
@@ -41,7 +41,7 @@ import logoTen from "./assets/logo-imgs/ten.png";
 import logoWas from "./assets/logo-imgs/was.png";
 
 function App() {
-  const [defenseData, setDefenseData] = useState(tyRes);
+  const [defenseData, setDefenseData] = useState(testRes);
   const [pointData, setPointData] = useState([]);
   const [rankingData, setRankingData] = useState([]);
   const [avgData, setAvgData] = useState("");
@@ -50,8 +50,6 @@ function App() {
     "1px solid black",
   ]);
   const [infoToShow, setInfoToShow] = useState("instruction");
-
-  let finishedWeeks = 1
 
   let arrLogos = [
     logoAri,
@@ -159,13 +157,15 @@ function App() {
     let stdevSum = 0;
     let avg;
     for (let i = 0; i < arr.points.length; i++) {
-      sum = sum + arr.points[i].points;
+      console.log("index: ", arr.points[i].points);
+      sum = sum + parseInt(arr.points[i].points);
+      console.log("sum: ", sum);
     }
-    avg = (sum / 32 / finishedWeeks).toFixed(1);
+    avg = (sum / 32).toFixed(1);
+
     for (let i = 0; i < arr.points.length; i++) {
       stdevSum =
-        stdevSum +
-        (arr.points[i].points / finishedWeeks - avg) * (arr.points[i].points / finishedWeeks - avg);
+        stdevSum + (arr.points[i].points - avg) * (arr.points[i].points - avg);
     }
     let stDev = Math.sqrt(stdevSum / arr.points.length).toFixed(1);
     avgArr.push({ position: pos, avg: avg, stdev: stDev });
@@ -177,28 +177,13 @@ function App() {
     }
   }
 
-  // function calcTotals(points, field, arr1, arr2, str) {
-  //   for (let i=0; i<defenseData.length; i++) {
-  //     points.push({
-  //       team: defenseData[i].Team,
-  //       points: defenseData[i].field,
-  //       logo: arrLogos[i],
-  //       color: arrColors[i]
-  //     })
-  //   }
-  //   arrSort(arr1)
-  //   pushTeams(points, arr2);
-  //   calcAvg(arr1, str)
-  //   console.log("some arrays: ", arr1, arr2)
-  // }
-
-  // calcTotals(qbArr.points, QuarterbackFantasyPointsAllowed, qbArr, qbRanks, "QB")
-
   function qbCalc() {
     for (let i = 0; i < defenseData.length; i++) {
       qbArr.points.push({
         team: defenseData[i].Team,
-        points: defenseData[i].QuarterbackFantasyPointsAllowed,
+        points: (
+          defenseData[i].QuarterbackFantasyPointsAllowed / defenseData[i].Games
+        ).toFixed(1),
         logo: arrLogos[i],
         color: arrColors[i],
       });
@@ -212,7 +197,9 @@ function App() {
     for (let i = 0; i < defenseData.length; i++) {
       rbArr.points.push({
         team: defenseData[i].Team,
-        points: defenseData[i].RunningbackFantasyPointsAllowed,
+        points: (
+          defenseData[i].RunningbackFantasyPointsAllowed / defenseData[i].Games
+        ).toFixed(1),
         logo: arrLogos[i],
         color: arrColors[i],
       });
@@ -226,7 +213,9 @@ function App() {
     for (let i = 0; i < defenseData.length; i++) {
       wrArr.points.push({
         team: defenseData[i].Team,
-        points: defenseData[i].WideReceiverFantasyPointsAllowed,
+        points: (
+          defenseData[i].WideReceiverFantasyPointsAllowed / defenseData[i].Games
+        ).toFixed(1),
         logo: arrLogos[i],
         color: arrColors[i],
       });
@@ -240,7 +229,9 @@ function App() {
     for (let i = 0; i < defenseData.length; i++) {
       teArr.points.push({
         team: defenseData[i].Team,
-        points: defenseData[i].TightEndFantasyPointsAllowed,
+        points: (
+          defenseData[i].TightEndFantasyPointsAllowed / defenseData[i].Games
+        ).toFixed(1),
         logo: arrLogos[i],
         color: arrColors[i],
       });
@@ -254,7 +245,9 @@ function App() {
     for (let i = 0; i < defenseData.length; i++) {
       kArr.points.push({
         team: defenseData[i].Team,
-        points: defenseData[i].KickerFantasyPointsAllowed,
+        points: (
+          defenseData[i].KickerFantasyPointsAllowed / defenseData[i].Games
+        ).toFixed(1),
         logo: arrLogos[i],
         color: arrColors[i],
       });
@@ -268,7 +261,9 @@ function App() {
     for (let i = 0; i < defenseData.length; i++) {
       dstArr.points.push({
         team: defenseData[i].Team,
-        points: defenseData[i].FantasyPointsAllowed,
+        points: (
+          defenseData[i].FantasyPointsAllowed / defenseData[i].Games
+        ).toFixed(1),
         logo: arrLogos[i],
         color: arrColors[i],
       });
@@ -290,17 +285,6 @@ function App() {
     setAvgData(avgArr);
   }
 
-  //  ====== DONT DELETE BELOW ======
-
-  // async function showStats() {
-  //   let responseDef = await axios.get(conStrDef);
-  //   let responseTeam = await axios.get(conStrTeam);
-  //   setDefenseData(responseDef.data);
-  //   setTeamData(responseTeam.data);
-  //   console.log("def", defenseData);
-  //   console.log("team", teamData);
-  // }
-
   function setVisible() {
     if (infoToShow == "instruction") {
       return (
@@ -318,8 +302,6 @@ function App() {
           teamRankings={rankingData}
           posAverages={avgData}
           teamLogos={arrLogos}
-          week = {finishedWeeks}
-          // teamData={teamData}
         />
       );
     } else {
@@ -330,8 +312,6 @@ function App() {
           teamRankings={rankingData}
           posAverages={avgData}
           teamLogos={arrLogos}
-          week = {finishedWeeks}
-          // teamData={teamData}
         />
       );
     }

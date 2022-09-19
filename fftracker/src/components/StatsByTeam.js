@@ -5,6 +5,7 @@ import TeamCard from "./TeamCard";
 import PlaceholderCard from "./PlaceholderCard";
 
 function StatsByTeam(props) {
+  console.log("statsbyteam: ", props);
   const [teamToShow, setTeamToShow] = useState("null");
   const [currentTeam, setCurrentTeam] = useState({
     teamName: "null",
@@ -167,42 +168,54 @@ function StatsByTeam(props) {
           teamLogo: teamLogo,
           ranks: [
             {
-              points: props.defenseData[i].QuarterbackFantasyPointsAllowed,
+              points:
+                props.defenseData[i].QuarterbackFantasyPointsAllowed /
+                props.defenseData[i].Games,
               rank: props.teamRankings[0].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[0].avg,
               stdev: props.posAverages[0].stdev,
               position: "QB",
             },
             {
-              points: props.defenseData[i].RunningbackFantasyPointsAllowed,
+              points:
+                props.defenseData[i].RunningbackFantasyPointsAllowed /
+                props.defenseData[i].Games,
               rank: props.teamRankings[1].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[1].avg,
               stdev: props.posAverages[1].stdev,
               position: "RB",
             },
             {
-              points: props.defenseData[i].WideReceiverFantasyPointsAllowed,
+              points:
+                props.defenseData[i].WideReceiverFantasyPointsAllowed /
+                props.defenseData[i].Games,
               rank: props.teamRankings[2].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[2].avg,
               stdev: props.posAverages[2].stdev,
               position: "WR",
             },
             {
-              points: props.defenseData[i].TightEndFantasyPointsAllowed,
+              points:
+                props.defenseData[i].TightEndFantasyPointsAllowed /
+                props.defenseData[i].Games,
               rank: props.teamRankings[3].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[3].avg,
               stdev: props.posAverages[3].stdev,
               position: "TE",
             },
             {
-              points: props.defenseData[i].KickerFantasyPointsAllowed,
+              points:
+                props.defenseData[i].KickerFantasyPointsAllowed /
+                props.defenseData[i].Games,
               rank: props.teamRankings[4].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[4].avg,
               stdev: props.posAverages[4].stdev,
               position: "K",
             },
             {
-              points: props.defenseData[i].FantasyPointsAllowed,
+              points:
+                props.defenseData[i].FantasyPointsAllowed /
+                props.defenseData[i].Games,
               rank: props.teamRankings[5].teamRanks.indexOf(team) + 1,
               avg: props.posAverages[5].avg,
               stdev: props.posAverages[5].stdev,
@@ -230,7 +243,7 @@ function StatsByTeam(props) {
         />
       );
     } else {
-      return <TeamCard team={teamToShow} stats={currentTeam} week={props.week}/>;
+      return <TeamCard team={teamToShow} stats={currentTeam} />;
     }
   }
 
