@@ -157,9 +157,7 @@ function App() {
     let stdevSum = 0;
     let avg;
     for (let i = 0; i < arr.points.length; i++) {
-      console.log("index: ", arr.points[i].points);
       sum = sum + parseInt(arr.points[i].points);
-      console.log("sum: ", sum);
     }
     avg = (sum / 32).toFixed(1);
 
@@ -174,6 +172,16 @@ function App() {
   function pushTeams(arr1, arr2) {
     for (let i = 0; i < arr1.length; i++) {
       arr2.push(arr1[i].team);
+    }
+  }
+
+  function calcLoop(arr, key) {
+    for (let i=0; i<arr.length; i++) {
+      let target = Object.keys(arr[i])
+      let index = target.indexOf(key)
+      console.log("index: ", index)
+      let values = Object.values(arr[i])
+      console.log("val: ", values[index])
     }
   }
 
@@ -274,6 +282,7 @@ function App() {
   }
 
   function calcAll() {
+    calcLoop(defenseData, "QuarterbackFantasyPointsAllowed")
     qbCalc();
     rbCalc();
     wrCalc();
