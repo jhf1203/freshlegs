@@ -27,7 +27,7 @@ function TeamRow(props) {
           <p className="text-team-row-position">{props.stats.position}</p>
         </Col>
         <Col className="col-team-row-dark text-team-row-avg" md="3">
-          <p>{pointsAvg}</p>
+          <p>{pointsAvg.toFixed(2)}</p>
         </Col>
         <Col className="col-team-row text-team-row-rank" md="3">
           <p>{props.stats.rank}</p>
