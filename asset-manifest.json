@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/freshlegs/static/css/main.73aad6a3.css",
-    "main.js": "/freshlegs/static/js/main.59ce8404.js",
+    "main.css": "/freshlegs/static/css/main.cda84f4d.css",
+    "main.js": "/freshlegs/static/js/main.c2110fe7.js",
     "static/js/787.46c8fa74.chunk.js": "/freshlegs/static/js/787.46c8fa74.chunk.js",
     "static/media/nyj.png": "/freshlegs/static/media/nyj.5812e25fbcf822b2faea.png",
     "static/media/bkgd.jpeg": "/freshlegs/static/media/bkgd.5904cb4ad4d7d8c79110.jpeg",
@@ -37,12 +37,12 @@
     "static/media/lac.png": "/freshlegs/static/media/lac.0291aa75bb486b7d10ed.png",
     "static/media/lar.png": "/freshlegs/static/media/lar.005776fa1f43f713f652.png",
     "index.html": "/freshlegs/index.html",
-    "main.73aad6a3.css.map": "/freshlegs/static/css/main.73aad6a3.css.map",
-    "main.59ce8404.js.map": "/freshlegs/static/js/main.59ce8404.js.map",
+    "main.cda84f4d.css.map": "/freshlegs/static/css/main.cda84f4d.css.map",
+    "main.c2110fe7.js.map": "/freshlegs/static/js/main.c2110fe7.js.map",
     "787.46c8fa74.chunk.js.map": "/freshlegs/static/js/787.46c8fa74.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73aad6a3.css",
-    "static/js/main.59ce8404.js"
+    "static/css/main.cda84f4d.css",
+    "static/js/main.c2110fe7.js"
   ]
 }
